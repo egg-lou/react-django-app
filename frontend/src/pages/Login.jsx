@@ -1,7 +1,7 @@
+import {Form} from "../components/Form.jsx";
+
 export const Login = () => {
     return (
-        <>
-            <h1>Login</h1>
-        </>
+        <Form route='/api/token/' method='login' />
     )
 }

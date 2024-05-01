@@ -1,7 +1,7 @@
+import {Form} from "../components/Form.jsx";
+
 export const Register = () => {
     return (
-        <>
-            <h1>Register</h1>
-        </>
+        <Form route='/api/user/register/' method='register' />
     )
 }
