@@ -43,7 +43,7 @@ export const Home = () => {
     }
 
     const logout = async () => {
-        navigate('logout');
+        navigate('/logout');
     }
     return (
         <div>
