@@ -2,12 +2,13 @@ import {useState, useEffect} from "react";
 import api from "../api.js";
 import {Note} from "../components/Note.jsx";
 import '../styles/Home.css';
-
+import {useNavigate} from "react-router-dom";
 
 export const Home = () => {
     const [notes, setNotes] = useState([]);
     const [content, setContent] = useState("");
     const [title, setTitle] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
         getNotes()
@@ -40,10 +41,17 @@ export const Home = () => {
         }).catch((error) => alert(error));
         await getNotes();
     }
+
+    const logout = async () => {
+        navigate('logout');
+    }
     return (
         <div>
             <div>
-                <h2>Notes</h2>
+                <div className='header'>
+                    <h2>Notes</h2>
+                    <button className='logout-button' onClick={logout}>Logout</button>
+                </div>
                 {notes.map((note) => (
                     <Note note={note} onDelete={deleteNote} key={note.id}/>
                 ))}
